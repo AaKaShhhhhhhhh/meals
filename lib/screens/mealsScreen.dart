@@ -7,15 +7,16 @@ import 'package:meals/widgets/meals_item.dart';
 
 
 class Mealsscreen extends StatelessWidget{
-  const Mealsscreen({super.key , required this.title , required this.meals});
+  const Mealsscreen({super.key , required this.title , required this.meals , required this.ontogglefavorite});
 
   final String title;
   final List< Meal> meals;
+  final void Function(Meal meal) ontogglefavorite;
   void selectmeal(context , Meal meal){
     Navigator.push(
       context,
        MaterialPageRoute(
-        builder: (ctx )=> Recepiescreen(meals: meal, title: title)
+        builder: (ctx )=> Recepiescreen(meals: meal, ontogglefavorite: ontogglefavorite,)
           )
           );
   }
@@ -43,6 +44,7 @@ class Mealsscreen extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: [IconButton(onPressed: (){ontogglefavorite;}, icon: Icon(Icons.star))],
       ),
       body:  content
     );

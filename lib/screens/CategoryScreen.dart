@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:meals/data/dummy_data.dart';
 import 'package:meals/models/category.dart';
+import 'package:meals/models/meals.dart';
 import 'package:meals/screens/mealsScreen.dart';
 import 'package:meals/widgets/category_grid_item.dart';
 
 class Categoryscreen extends StatelessWidget{
-  Categoryscreen({super.key });
+  Categoryscreen({super.key , required this.ontogglefavorite});
+  final void Function(Meal meal) ontogglefavorite;
 
   void _selectCategory(context , Category category){
     final outputting_List_Here = 
@@ -15,18 +17,15 @@ class Categoryscreen extends StatelessWidget{
     Navigator.push(context, MaterialPageRoute(
       builder: (ctx) =>  Mealsscreen(
         title: category.title,
-         meals: outputting_List_Here),
+         meals: outputting_List_Here,
+         ontogglefavorite: ontogglefavorite,),
          ),
          );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Pick Your Category'),
-      ),
-      body: GridView(
+    return  GridView(
         padding: EdgeInsets.all(10),
         gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2 ,
@@ -44,7 +43,7 @@ class Categoryscreen extends StatelessWidget{
                 )
                 ]
 
-      ),
+     
     );
 
   }
