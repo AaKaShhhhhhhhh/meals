@@ -5,7 +5,7 @@ import 'package:meals/models/category.dart';
 import 'package:meals/screens/mealsScreen.dart';
 
 class CategoryGridItem extends StatelessWidget{
-  CategoryGridItem({required this.category ,super.key, required this.onSelectcategory});
+  const CategoryGridItem({required this.category ,super.key, required this.onSelectcategory});
 
 final Category category;
 final void Function() onSelectcategory;
@@ -18,7 +18,7 @@ final void Function() onSelectcategory;
     splashColor: Theme.of(context).primaryColor,
     borderRadius: BorderRadius.circular(19),
      child: Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration:  BoxDecoration(
         borderRadius: BorderRadius.circular(19),
         gradient: LinearGradient(colors: 
@@ -27,7 +27,7 @@ final void Function() onSelectcategory;
       child: Text(
         category.title,
       style: Theme.of(context).textTheme.titleLarge!.copyWith(
-        color:  Theme.of(context).colorScheme.onBackground,
+        color:  Theme.of(context).colorScheme.onSurface,
      
       ),
      

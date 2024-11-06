@@ -37,14 +37,14 @@ class Mealsscreen extends StatelessWidget{
         );
 
         if (meals.isEmpty){
-          return Center(child: Text('No meals found'));
+          return const Center(child: Text('No meals found'));
         }
 
  
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: [IconButton(onPressed: (){ontogglefavorite;}, icon: Icon(Icons.star))],
+        actions: [IconButton(onPressed: (){ontogglefavorite;}, icon: const Icon(Icons.star))],
       ),
       body:  content
     );

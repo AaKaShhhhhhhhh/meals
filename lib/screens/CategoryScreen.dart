@@ -6,18 +6,18 @@ import 'package:meals/screens/mealsScreen.dart';
 import 'package:meals/widgets/category_grid_item.dart';
 
 class Categoryscreen extends StatelessWidget{
-  Categoryscreen({super.key , required this.ontogglefavorite});
+  const Categoryscreen({super.key , required this.ontogglefavorite});
   final void Function(Meal meal) ontogglefavorite;
 
   void _selectCategory(context , Category category){
-    final outputting_List_Here = 
+    final outputtingListHere = 
     dummyMeals.where(
       (meal) => meal.categories.contains(category.id)).toList();
 
     Navigator.push(context, MaterialPageRoute(
       builder: (ctx) =>  Mealsscreen(
         title: category.title,
-         meals: outputting_List_Here,
+         meals: outputtingListHere,
          ontogglefavorite: ontogglefavorite,),
          ),
          );
@@ -26,7 +26,7 @@ class Categoryscreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return  GridView(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2 ,
        childAspectRatio: 3/2,

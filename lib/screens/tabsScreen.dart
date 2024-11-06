@@ -5,7 +5,7 @@ import 'package:meals/screens/CategoryScreen.dart';
 import 'package:meals/screens/mealsScreen.dart';
 
 class  Tabsscreen extends StatefulWidget {
-  Tabsscreen({super.key});
+  const Tabsscreen({super.key});
 
 
 
@@ -27,11 +27,16 @@ class TabsscreenState extends  State<Tabsscreen>{
 
   void togglefavoriteMeal(Meal meal){
     final existingmeal = favoriteMeal.contains(meal);
-    if(existingmeal){
-      favoriteMeal.remove(meal);
+    
+      if(existingmeal){
+        setState(() {
+      favoriteMeal.remove(meal);});
     }
     else{
-      favoriteMeal.add(meal);
+      setState(() {
+        favoriteMeal.add(meal);
+      });
+      
     }
   }
 
