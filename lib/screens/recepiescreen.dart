@@ -23,7 +23,7 @@ class Recepiescreen extends StatelessWidget{
         image: NetworkImage(meals.imageUrl)
         ),
         const SizedBox(height: 10,),
-        Text("Ingredients" , style: Theme.of(context).textTheme.titleLarge!.copyWith(
+        Text("Ingredientss" , style: Theme.of(context).textTheme.titleLarge!.copyWith(
           color: Theme.of(context).colorScheme.onSurface,
 
         ),
